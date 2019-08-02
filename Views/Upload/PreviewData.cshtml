@@ -1,0 +1,65 @@
+﻿@model IEnumerable<IDictionary<object, object>>
+@{
+    ViewBag.Title = "Preview Data";
+}
+
+<h2>PreviewData</h2>
+
+<!--Content-->
+<div class="row-fluid">
+    <div class="well span12">
+        <h4>Instructions</h4>
+        <ol>
+            <li>
+                You have uploaded a file.
+            </li>
+            <li>
+                To upload another file, click "discard". This will take you back to the upload page.
+            </li>
+            <li>Preview the uploaded data to make sure you have uploaded the right file.</li>
+            <li>
+                To proceed, click "Next".
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12 form-actions">
+        <a href="@Url.Action("UploadFile", new { newUpload = true })" class="btn btn-danger" title="Discard and upload a new file">
+            <i class="icon-white icon-remove-sign"></i> Discard
+        </a>
+        <a href="@Url.Action("StartGeocode", "Geocode")" class="btn btn-primary">Geocode <i class="icon-white icon-arrow-right"></i></a>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h4>Uploaded data</h4>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    @foreach (var key in Model.First().Keys) { 
+                        <th>@key</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in Model) { 
+                    <tr>
+                        @foreach (var key in row.Keys) { 
+                            <td>@row[key]</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12 form-actions">
+        <a href="@Url.Action("UploadFile", new { newUpload = true })" class="btn btn-danger" title="Discard and upload a new file">
+            <i class="icon-white icon-remove-sign"></i> Discard
+        </a>
+        <a href="@Url.Action("StartGeocode", "Geocode")" class="btn btn-primary">Geocode <i class="icon-white icon-arrow-right"></i></a>
+    </div>
+</div>

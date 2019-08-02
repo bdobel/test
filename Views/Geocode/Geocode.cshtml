@@ -1,0 +1,31 @@
+﻿@model IEnumerable<IDictionary<object, object>>
+@if (Model != null) { 
+    <div class="row-fluid">
+        <div class="span12">
+            <h4>Data Geocoded</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        @foreach (var key in Model.First().Keys) { 
+                            <th>@key
+                            </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model.Take(25)) { 
+                        <tr>
+                            @foreach (var key in row.Keys) { 
+                                <td>@row[key]</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <p>(Preview of 25 first rows). Geocoded and stored @ViewBag.DataCount rows.</p>
+        </div>
+    </div>
+}
+else { 
+    <p>@TempData["message"]</p>
+}

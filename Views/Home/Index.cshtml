@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+               Welcome to geocoding service provided by ESRGC.
+            </p>
+        </div>
+    </section>
+}
+<h3>We suggest the following:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Getting Started</h5>
+        <p>Upload csv files.</p>
+    </li>
+
+    <li class="two">
+        <h5>Verify data</h5>
+        <p>Data preview and ready for geocoding.</p>
+    </li>
+
+    <li class="three">
+        <h5>Geocode</h5>
+        <p>Start geocoding process.</p>
+    </li>
+</ol>
+
+<div>
+    @Html.ActionLink("Start", "UploadFile", "Upload")
+</div>
